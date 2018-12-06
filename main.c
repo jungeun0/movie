@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
 	FILE *fp; //FILE pointer for reading movie data 
 	char name[200]; //movie name
 	char country[10]; //movie country
-	int runTime; //movie runtime
+	int runtime; //movie runtime
 	float score; //movie score
 	
 	int exit_flag = 0; //flag variable for while loop
@@ -20,7 +20,7 @@ int main(int argc, char *argv[]) {
 	/* linked list를 가리키는, list를 가리키는 포인터 변수 *list, 노드를 가리키는 포인터 필요함 이게 node 포인터*/ 
 	int (*repFunc)(void* obj, void* arg); //function pointer for using list_repeatFunc() function 함수포인터
 	void *arg; //a void pointer for passing argument to repFunc
-	int cnt; //integer variable
+	int cnt=0; //integer variable
 	
 	 
 	//1. reading the movie.dat-----------------------------
@@ -28,7 +28,7 @@ int main(int argc, char *argv[]) {
 	
     
 	//1.1 FILE open:
-		fp = fopen("movie.dat","r");
+	fp = fopen("movie.dat","r");
 	if(fp != NULL){
 		printf("파일을 열었습니다.\n");
 	} 
@@ -41,18 +41,22 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (  )/* read name, country, runtime and score*/
-	{	//읽어온 파일을 열어서 함수를 이용해서 구조체에 저장 
+	while (fscanf(fp,"%s %s %d %f",&name,&country,&runtime,&score)!=EOF)
+	{ //읽어온 파일을 열어서 함수를 이용해서 구조체에 저장 
 		
+	  //printf("%s %s %d %f\n",name, country, runtime, score);
 		
+		//구조체로 넘기자! 
+		mv_genMvInfo(name,score,runtime,country);
+		list_addTail(mvInfo, list);
 		
+		}
 		
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
-	  list_addTail(mvInfo, list);
-	}
+	 
+	
    
     fclose(fp);
-    
 	//1.4 FILE close
 	
 	//2. program start
@@ -68,6 +72,8 @@ int main(int argc, char *argv[]) {
 		printf("4. search for specific score movies\n");
 		printf("-------------------- menu --------------------\n");
 		
+		scanf("%d",&option);
+		
 		
 		switch(option)
 		{
@@ -80,15 +86,25 @@ int main(int argc, char *argv[]) {
 				break;
 				
 			case 2: //print movies of specific country
-
-				break;
+				printf("\nprinting all the movies in the list.....\n\n\n");
+				printf("----------------------------------------\n");
 				
+				repFunc = mv_printScore;
+				arg = NULL;
+				break;
 			case 3: //print movies with long runtime
-
+				printf("\nprinting all the movies in the list.....\n\n\n");
+				printf("----------------------------------------\n");
+				
+				repFunc = mv_printRunTime;
+				arg = NULL;
 				break;
-				
 			case 4: //print movies with high score
+				printf("\nprinting all the movies in the list.....\n\n\n");
+				printf("----------------------------------------\n");
 				
+				repFunc = mv_printCountry;
+				arg = NULL;
 				break;
 				
 			case 5:
@@ -96,13 +112,14 @@ int main(int argc, char *argv[]) {
 				exit_flag = 1;
 				
 				break;
-				
+					
 			default:
 				printf("wrong command! input again\n");
 				break;
 		}
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
+		 list_repeatFunc(repFunc, arg, list);
 		//2.3 print number of movies
 	}
 	
