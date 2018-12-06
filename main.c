@@ -41,15 +41,11 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (fscanf(fp,"%s %s %d %f",&name,&country,&runtime,&score)!=EOF)
-	{ //읽어온 파일을 열어서 함수를 이용해서 구조체에 저장 
-		
-	  //printf("%s %s %d %f\n",name, country, runtime, score);
-		
-		//구조체로 넘기자! 
-		mv_genMvInfo(name,score,runtime,country);
+	while (fscanf(fp,"%s %s %d %f",name,country,&runtime,&score)!=EOF//읽어온 파일을 열어서 변수에 저장 )
+	{  
+		//구조체로 넘김 
 		list_addTail(mvInfo, list);
-		
+		mv_genMvInfo(name,score,runtime,country);
 		}
 		
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
