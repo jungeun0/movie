@@ -41,7 +41,7 @@ int main(int argc, char *argv[]) {
 	list = list_genList();
 	
 	//1.3 read each movie data from the file and add it to the linked list
-	while (fscanf(fp,"%s %s %d %f",name,country,&runtime,&score)!=EOF//읽어온 파일을 열어서 변수에 저장 )
+	while (fscanf(fp,"%s %s %d %f",name,country,&runtime,&score)!=EOF/*읽어온 파일을 열어서 변수에 저장*/ )
 	{  
 		//구조체로 넘김 
 		list_addTail(mvInfo, list);
