@@ -274,7 +274,7 @@ void* list_getNextNd(void* nd)
 	            2. go to the next node and call func() with argument node->obj
 */
 int list_repeatFunc(int (*func)(void* obj, void* arg), void* arg, void* list)
-{
+{ //repFunc,arg,list
 	node_t* listPtr = (node_t*)list;
 	int len=0;
 	

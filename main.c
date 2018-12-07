@@ -26,7 +26,6 @@ int main(int argc, char *argv[]) {
 	//1. reading the movie.dat-----------------------------
 	
 	
-    
 	//1.1 FILE open:
 	fp = fopen("movie.dat","r");
 	if(fp != NULL){
@@ -49,7 +48,8 @@ int main(int argc, char *argv[]) {
 		}
 		
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
-	 
+	printf("ready done!");
+//	printf("%d items are read\n",updateIndex()); 
     fclose(fp);
 	//1.4 FILE close
 	
@@ -74,32 +74,28 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				
-				repFunc = mv_printAll;
-				arg = NULL;
+				repFunc = mv_printAll; //mv_printAll안에 printmv가 들어가야 함 
+				list_addNext(mvInfo,list);
+				arg = NULL; //왜 arg를 초기화시키는걸까-> arg는 구조체를 불러올 수 있는 조건 
 				break;
 				
 			case 2: //print movies of specific country
-				printf("\nprinting all the movies in the list.....\n\n\n");
-				printf("----------------------------------------\n");
-				
+				printf("select the country : ");
+				scanf("%s",&arg);			
 				repFunc = mv_printScore;
 				arg = NULL;
 				break;
 			case 3: //print movies with long runtime
-				printf("\nprinting all the movies in the list.....\n\n\n");
-				printf("----------------------------------------\n");
-				
+				printf("\nprinting  the movies in the list.....\n\n\n");
+				printf("----------------------------------------\n");	
 				repFunc = mv_printRunTime;
 				arg = NULL;
 				break;
 			case 4: //print movies with high score
-				printf("\nprinting all the movies in the list.....\n\n\n");
+				printf("\nprinting the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				
 				repFunc = mv_printCountry;
 				arg = NULL;
-				printf("!!@");
 				break;
 				
 			case 5:
@@ -112,11 +108,12 @@ int main(int argc, char *argv[]) {
 				printf("wrong command! input again\n");
 				break;
 		}
-		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
-		 list_repeatFunc(repFunc, arg, list);
-		 printf("!");
+		list_repeatFunc(repFunc, arg, list);
 		//2.3 print number of movies
+		cnt = list_len(list);
+		printf("number of movies = %d\n",cnt);
+	
 	}
 	
 	return 0;
