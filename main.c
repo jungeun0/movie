@@ -50,14 +50,12 @@ int main(int argc, char *argv[]) {
 		
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 	 
-	
-   
     fclose(fp);
 	//1.4 FILE close
 	
 	//2. program start
 	while(exit_flag == 0)
-	{
+	{	
 		//2.1 print menu message and get input option
 		
 		
@@ -66,10 +64,10 @@ int main(int argc, char *argv[]) {
 		printf("2. search for specific country movies\n");
 		printf("3. search for specific runtime movies\n");
 		printf("4. search for specific score movies\n");
+		printf("5. exit\n");
 		printf("-------------------- menu --------------------\n");
 		
 		scanf("%d",&option);
-		
 		
 		switch(option)
 		{
@@ -101,6 +99,7 @@ int main(int argc, char *argv[]) {
 				
 				repFunc = mv_printCountry;
 				arg = NULL;
+				printf("!!@");
 				break;
 				
 			case 5:
@@ -116,6 +115,7 @@ int main(int argc, char *argv[]) {
 		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
 		 list_repeatFunc(repFunc, arg, list);
+		 printf("!");
 		//2.3 print number of movies
 	}
 	
