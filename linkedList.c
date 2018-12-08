@@ -110,7 +110,7 @@ int list_addTail(void* obj, void* list)
 	
 	//parameter checking
 	if (listPtr == NULL || obj == NULL)
-	{ 
+	{ 	
 		printf("[ERROR] Failed to do addTail : list pointer is NULL or object indicates NULL! (%u, %u)\n", list, obj);
 		return -1;
 	}

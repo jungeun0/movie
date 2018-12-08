@@ -31,9 +31,9 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 
 void printMv(void* obj)
 {
-	movInfo_t* mvPtr = (movInfo_t*)obj; //obj는 조건을 통해 선택된 영화 구조체 
-	
+	movInfo_t* mvPtr;
 	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
+	mvPtr = (movInfo_t*)obj; //obj는 조건을 통해 선택된 영화 구조체
 	if (mvPtr == NULL)
 	{
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
@@ -44,18 +44,17 @@ void printMv(void* obj)
 }
 
 int mv_printAll(void* obj, void* arg)
-{  //여기가 문제다.. 
-	movInfo_t* mvPtr = list_getNextNd();
-	
-	//조건에 맞는 구조체를 불러와야 함.. 
-	//obj는 movInfo 구조체 하나, arg는 조건
+{  	
+	movInfo_t* mvPtr = obj;
+	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
 	printMv(mvPtr);
 	
 }
 
 int mv_printScore(void* obj, void* arg)
 {
-	
+		//조건에 맞는 구조체를 불러와야 함.. 
+	//obj는 movInfo 구조체 하나, arg는 조건
 }
 
 int mv_printRunTime(void* obj, void* arg)

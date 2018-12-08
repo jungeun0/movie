@@ -49,14 +49,13 @@ int main(int argc, char *argv[]) {
 		
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 	printf("ready done!");
-//	printf("%d items are read\n",updateIndex()); 
+	printf("%d items are read\n",(list_len(list))); 
     fclose(fp);
 	//1.4 FILE close
 	
 	//2. program start
 	while(exit_flag == 0)
 	{	
-		//2.1 print menu message and get input option
 		
 		
 		printf("-------------------- menu --------------------\n");
@@ -75,13 +74,14 @@ int main(int argc, char *argv[]) {
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printAll; //mv_printAll안에 printmv가 들어가야 함 
-				list_addNext(mvInfo,list);
 				arg = NULL; //왜 arg를 초기화시키는걸까-> arg는 구조체를 불러올 수 있는 조건 
 				break;
 				
 			case 2: //print movies of specific country
 				printf("select the country : ");
-				scanf("%s",&arg);			
+				scanf("%s",&arg);	
+				printf("\nprinting  the movies in the list.....\n\n\n");
+				printf("----------------------------------------\n");		
 				repFunc = mv_printScore;
 				arg = NULL;
 				break;
@@ -109,6 +109,10 @@ int main(int argc, char *argv[]) {
 				break;
 		}
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
+		if(exit_flag == 1){
+			break;
+		} 
+		
 		list_repeatFunc(repFunc, arg, list);
 		//2.3 print number of movies
 		cnt = list_len(list);
