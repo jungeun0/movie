@@ -31,9 +31,8 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 
 void printMv(void* obj)
 {
-	movInfo_t* mvPtr;
-	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
-	mvPtr = (movInfo_t*)obj; //obj는 조건을 통해 선택된 영화 구조체
+	movInfo_t* mvPtr = (movInfo_t*)obj;
+	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));  //obj는 조건을 통해 선택된 영화 구조체
 	if (mvPtr == NULL)
 	{
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
@@ -42,12 +41,10 @@ void printMv(void* obj)
 	printf("running time : %i, score : %f\n", mvPtr->runtime, mvPtr->score);
 	return;
 }
-
 int mv_printAll(void* obj, void* arg)
 {  	
-	movInfo_t* mvPtr = obj;
-	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));
-	printMv(mvPtr);
+	//obj는 구조체,  movInfo 를 넣어야함. 
+	printMv(&obj);
 	
 }
 

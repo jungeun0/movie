@@ -74,7 +74,7 @@ int main(int argc, char *argv[]) {
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printAll; //mv_printAll안에 printmv가 들어가야 함 
-				arg = NULL; //왜 arg를 초기화시키는걸까-> arg는 구조체를 불러올 수 있는 조건 
+				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
 				break;
 				
 			case 2: //print movies of specific country
