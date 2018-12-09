@@ -286,7 +286,7 @@ int list_repeatFunc(int (*func)(void* obj, void* arg), void* arg, void* list)
 	}
 	
 	while ( list_isEndNode(listPtr) == 0 )//travel until it is the end node
-	{
+	{	
 		listPtr = listPtr->next; //travel once
 		len += func(listPtr->obj, arg); //increase the length variable
 	}

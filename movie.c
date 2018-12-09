@@ -44,10 +44,10 @@ void printMv(void* obj)
 	return;
 }
 int mv_printAll(void* obj, void* arg)
-{
+{	
+	obj = &list_getNdObj(list_getNextNd(genNode()));
 	//여기서 obj를 넘겨야해....아니면 앞에서 .. 어떻게 하지
-	printMv(obj);
-	
+	free(obj);
 }
 
 int mv_printScore(void* obj, void* arg)
