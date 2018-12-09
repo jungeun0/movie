@@ -45,9 +45,8 @@ int main(int argc, char *argv[]) {
 		//구조체로 넘김 
 		list_addTail(mvInfo, list);
 		mv_genMvInfo(name,score,runtime,country);
-	//	printf("%s %s %d %f\n",name, country, runtime, score);
-		}
 		
+	}
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
 	printf("ready done!");
 	printf("%d items are read\n",(list_len(list))); 
@@ -74,8 +73,8 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				mvInfo = &movInfo_t;
-				repFunc = mv_printAll; //mv_printAll안에 printmv가 들어가야 함 
+				mvInfo = list_getNdObj(list_getNextNd);
+				repFunc = mv_printAll; //mv_print-All안에 printmv가 들어가야 함 
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
 				break; 
 				

@@ -22,7 +22,7 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 	strcpy(mvPtr->name,name);
 	mvPtr->runtime = runtime;
 	mvPtr->score = score;
-	//printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
+	printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
 	
 	//allocate memory and set the member variables
 	
@@ -43,8 +43,8 @@ void printMv(void* obj)
 	return;
 }
 int mv_printAll(void* obj, void* arg)
-{  	
-	printMv(obj);
+{
+	printMv;
 	
 }
 
