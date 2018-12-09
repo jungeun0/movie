@@ -73,7 +73,7 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				mvInfo = list_getNdObj(list_getNextNd);
+				
 				repFunc = mv_printAll; //mv_print-All안에 printmv가 들어가야 함 
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
 				break; 

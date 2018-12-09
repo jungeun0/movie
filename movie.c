@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "movie.h"
-
+#include "linkedList.h"
 //structure definition
 typedef struct movInfo {
 	char name[100];
@@ -24,6 +24,7 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 	mvPtr->score = score;
 	printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
 	
+	free(mvPtr);
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;
@@ -44,7 +45,8 @@ void printMv(void* obj)
 }
 int mv_printAll(void* obj, void* arg)
 {
-	printMv;
+	//여기서 obj를 넘겨야해....아니면 앞에서 .. 어떻게 하지
+	printMv(obj);
 	
 }
 
