@@ -45,6 +45,7 @@ int main(int argc, char *argv[]) {
 		//구조체로 넘김 
 		list_addTail(mvInfo, list);
 		mv_genMvInfo(name,score,runtime,country);
+	//	printf("%s %s %d %f\n",name, country, runtime, score);
 		}
 		
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
@@ -73,9 +74,10 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
+				mvInfo = &movInfo_t;
 				repFunc = mv_printAll; //mv_printAll안에 printmv가 들어가야 함 
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
-				break;
+				break; 
 				
 			case 2: //print movies of specific country
 				printf("select the country : ");
@@ -115,8 +117,8 @@ int main(int argc, char *argv[]) {
 		
 		list_repeatFunc(repFunc, arg, list);
 		//2.3 print number of movies
-		cnt = list_len(list);
-		printf("number of movies = %d\n",cnt);
+		//cnt = list_len(list);
+		//printf("number of movies = %d\n",cnt);
 	
 	}
 	

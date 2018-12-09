@@ -23,7 +23,7 @@ node_t* genNode(void)
 	if (ndPtr != NULL)
 	{   
 		ndPtr->next = NULL;
-		ndPtr->obj = NULL; //ÃÊ±âÈ­? 
+		ndPtr->obj = NULL; 
 	}
 	
 	return ndPtr;	

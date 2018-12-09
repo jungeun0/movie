@@ -22,7 +22,7 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 	strcpy(mvPtr->name,name);
 	mvPtr->runtime = runtime;
 	mvPtr->score = score;
-	printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
+	//printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
 	
 	//allocate memory and set the member variables
 	
@@ -30,7 +30,7 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 }
 
 void printMv(void* obj)
-{
+{	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
 	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));  //obj는 조건을 통해 선택된 영화 구조체
 	if (mvPtr == NULL)
@@ -39,12 +39,12 @@ void printMv(void* obj)
 	}
 	printf("Name : %s (%s)\n", mvPtr->name, mvPtr->country);
 	printf("running time : %i, score : %f\n", mvPtr->runtime, mvPtr->score);
+	printf("----------------------------------------\n");
 	return;
 }
 int mv_printAll(void* obj, void* arg)
 {  	
-	//obj는 구조체,  movInfo 를 넣어야함. 
-	printMv(&obj);
+	printMv(obj);
 	
 }
 
