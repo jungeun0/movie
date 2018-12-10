@@ -75,26 +75,34 @@ int main(int argc, char *argv[]) {
 				printf("----------------------------------------\n");
 				repFunc = mv_printAll; //mv_print-All안에 printmv가 들어가야 함
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
+				
+				list_repeatFunc(repFunc, arg, list);
 				break; 
 				
 			case 2: //print movies of specific country
-				printf("select the country : ");
-				scanf("%s",&arg);	
+				printf("select the score : ");
+				scanf("%f",&score);	
 				printf("\nprinting  the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");		
 				repFunc = mv_printScore;
 				arg = NULL;
+				
+				list_repeatFunc(repFunc, arg, list);
 				break;
 			case 3: //print movies with long runtime
 				printf("\nprinting  the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");	
 				repFunc = mv_printRunTime;
+				
+				list_repeatFunc(repFunc, arg, list);
 				arg = NULL;
 				break;
 			case 4: //print movies with high score
 				printf("\nprinting the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printCountry;
+				
+				list_repeatFunc(repFunc, arg, list);	
 				arg = NULL;
 				break;
 				
@@ -108,11 +116,7 @@ int main(int argc, char *argv[]) {
 				printf("wrong command! input again\n");
 				break;
 			}
-				if(exit_flag == 1){
-				break;
-				}
-		
-		list_repeatFunc(repFunc, arg, list);		
+				
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
 		} 
 		
