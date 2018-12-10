@@ -54,12 +54,11 @@ int mv_printAll(void* obj, void* arg)
 
 int mv_printScore(void* obj, void* arg)
 {		
-		
+		int score;
 		movInfo_t* mvPtr = (movInfo_t*)obj;
-		arg = mvPtr;
-		
-		if ((mvPtr->score) =*score){
-			printMv(arg);
+	
+		if ((mvPtr->score) == *(float*)arg){
+			printMv(mvPtr);
 		} 
 		//조건에 맞는 구조체를 불러와야 함.. 
 		//obj는 movInfo 구조체 하나, arg는 조건

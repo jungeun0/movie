@@ -74,19 +74,17 @@ int main(int argc, char *argv[]) {
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printAll; //mv_print-All안에 printmv가 들어가야 함
-				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
-				
+				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 	
 				list_repeatFunc(repFunc, arg, list);
 				break; 
 				
 			case 2: //print movies of specific country
-				printf("select the score : ");
-				scanf("%f",&score);	
+				printf("select the score : \n");
+				scanf("%f",&arg);
 				printf("\nprinting  the movies in the list.....\n\n\n");
-				printf("----------------------------------------\n");		
-				repFunc = mv_printScore;
+				printf("----------------------------------------\n");
+				repFunc = mv_printScore; //score를 어떻게 넘기지? 
 				arg = NULL;
-				
 				list_repeatFunc(repFunc, arg, list);
 				break;
 			case 3: //print movies with long runtime
