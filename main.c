@@ -86,7 +86,7 @@ int main(int argc, char *argv[]) {
 				printf("\nprinting  the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printScore; //score를 어떻게 넘기지? 
-				list_repeatFunc(repFunc, arg, list);
+				
 				
 				break;
 			case 3: //print movies with long runtime
@@ -103,7 +103,6 @@ int main(int argc, char *argv[]) {
 				repFunc = mv_printCountry;
 				
 				list_repeatFunc(repFunc, arg, list);	
-				arg = NULL;
 				break;
 				
 			case 5:
@@ -124,8 +123,8 @@ int main(int argc, char *argv[]) {
 	
 		
 		//2.3 print number of movies
-
-	cnt = list
+		list_repeatFunc(repFunc, arg, list);
+		printf("totally %i movies are listed!\n",list_repeatFunc(repFunc, arg, list));
 
    }
    

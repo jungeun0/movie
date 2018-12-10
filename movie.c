@@ -60,9 +60,9 @@ int mv_printScore(void* obj, void* arg)
 		printMv(mvPtr);
 	
 	}
-	else if ((mvPtr->score) == NULL){
+	else if (mvPtr == NULL){
 		
-		printf("[ERROR] failed to print the movie Info! (object is NULL)\n")
+		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
 	}
 
 		//조건에 맞는 구조체를 불러와야 함.. 
