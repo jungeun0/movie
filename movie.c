@@ -45,8 +45,7 @@ void printMv(void* obj)
 int mv_printAll(void* obj, void* arg)
 {	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	
-	
+		
 	printMv(mvPtr);
 	
 	return 0;
@@ -54,20 +53,21 @@ int mv_printAll(void* obj, void* arg)
 
 int mv_printScore(void* obj, void* arg)
 {		
-		movInfo_t* mvPtr = (movInfo_t*)obj;
+	movInfo_t* mvPtr = (movInfo_t*)obj;
 		
-		if (mvPtr->score == *(float*)arg){
+	if ((mvPtr->score) >= (*(float*)arg)){
 			
-			printMv(mvPtr);
-			return 0;
-		}
-		else{
+		printMv(mvPtr);
+	
+	}
+	else if ((mvPtr->score) == NULL){
 		
-			return 0;
-		} 
+		printf("[ERROR] failed to print the movie Info! (object is NULL)\n")
+	}
+
 		//조건에 맞는 구조체를 불러와야 함.. 
 		//obj는 movInfo 구조체 하나, arg는 조건
-		
+	return 0;	
 }
 
 int mv_printRunTime(void* obj, void* arg)
