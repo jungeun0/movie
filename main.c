@@ -76,6 +76,8 @@ int main(int argc, char *argv[]) {
 				repFunc = mv_printAll; //mv_print-All안에 printmv가 들어가야 함
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 	
 				list_repeatFunc(repFunc, arg, list);
+				cnt = list_len(list);
+				printf("number of movies = %d\n",cnt);
 				break; 
 				
 			case 2: //print movies of specific country
@@ -121,8 +123,8 @@ int main(int argc, char *argv[]) {
 	
 		
 		//2.3 print number of movies
-		//cnt = list_len(list);
-		//printf("number of movies = %d\n",cnt);
+		cnt = list_len(list);
+		printf("number of movies = %d\n",cnt);
 	
 	
 	
