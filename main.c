@@ -87,21 +87,24 @@ int main(int argc, char *argv[]) {
 				printf("----------------------------------------\n");
 				repFunc = mv_printScore; //score를 어떻게 넘기지? 
 				
-				
 				break;
 			case 3: //print movies with long runtime
+				printf("select the runtime : \n");
+				arg = &runtime;
+				scanf("%d",&runtime);
 				printf("\nprinting  the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");	
 				repFunc = mv_printRunTime;
-				
 				list_repeatFunc(repFunc, arg, list);
-				arg = NULL;
 				break;
 			case 4: //print movies with high score
+				printf("select the country : \n");
+				arg = &country;
+				scanf("%s",&country);
+				printf("%s",arg);
 				printf("\nprinting the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printCountry;
-				
 				list_repeatFunc(repFunc, arg, list);	
 				break;
 				
@@ -123,8 +126,8 @@ int main(int argc, char *argv[]) {
 	
 		
 		//2.3 print number of movies
-		list_repeatFunc(repFunc, arg, list);
-		printf("totally %i movies are listed!\n",list_repeatFunc(repFunc, arg, list));
+		cnt = list_repeatFunc(repFunc, arg, list);
+		printf("totally %i movies are listed!\n",cnt);
 
    }
    

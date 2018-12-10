@@ -72,12 +72,38 @@ int mv_printScore(void* obj, void* arg)
 
 int mv_printRunTime(void* obj, void* arg)
 {
+	movInfo_t* mvPtr = (movInfo_t*)obj;
+	if ((mvPtr->runtime) >= (*(int*)arg)){
+			
+		printMv(mvPtr);
+	
+	}
+	else if (mvPtr == NULL){
+		
+		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
+	}
+
+	
+	return 0;
 	
 }
 
 int mv_printCountry(void* obj, void* arg)
 {
+	movInfo_t* mvPtr = (movInfo_t*)obj;
 	
+	if ((mvPtr->country) == (*(char*)arg)){
+			
+		printMv(mvPtr);
+	
+	}
+	else if (mvPtr == NULL){
+		
+		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
+	}
+
+	
+	return 0;
 }
 
 
