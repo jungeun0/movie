@@ -125,7 +125,11 @@ int main(int argc, char *argv[]) {
 	    
 		
 		//2.3 print number of movies
+		
 		cnt = list_repeatFunc(repFunc, arg, list);
+		if(exit_flag == 1){
+			cnt = 0;
+		}
 		printf("totally %i movies are listed!\n",cnt);
 
    }
