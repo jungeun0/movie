@@ -107,18 +107,22 @@ int main(int argc, char *argv[]) {
 			default:
 				printf("wrong command! input again\n");
 				break;
-		}
+			}
+				if(exit_flag == 1){
+				break;
+				}
+		
+		list_repeatFunc(repFunc, arg, list);		
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
-		if(exit_flag == 1){
-			break;
 		} 
 		
-		list_repeatFunc(repFunc, arg, list);
+	
+		
 		//2.3 print number of movies
 		//cnt = list_len(list);
 		//printf("number of movies = %d\n",cnt);
 	
-	}
+	
 	
 	return 0;
 } 
