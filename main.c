@@ -60,9 +60,9 @@ int main(int argc, char *argv[]) {
 		
 		printf("-------------------- menu --------------------\n");
 		printf("1. print all the movies\n");
-		printf("2. search for specific country movies\n");
+		printf("2. search for specific score movies\n");
 		printf("3. search for specific runtime movies\n");
-		printf("4. search for specific score movies\n");
+		printf("4. search for specific country movies\n");
 		printf("5. exit\n");
 		printf("-------------------- menu --------------------\n");
 		

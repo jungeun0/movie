@@ -45,24 +45,30 @@ void printMv(void* obj)
 int mv_printAll(void* obj, void* arg)
 {	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	arg = mvPtr;
+//	arg = mvPtr;
 	
-	printMv(arg);
-	
+	printMv(mvPtr);
+
 	return 0;
 }
 
 int mv_printScore(void* obj, void* arg)
 {		
-		int score;
 		movInfo_t* mvPtr = (movInfo_t*)obj;
-	
+		
+		
 		if ((mvPtr->score) == *(float*)arg){
-			printMv(mvPtr);
-		} 
+			
+			printMv;
+			return 0;
+		}
+		else
+		{
+		return 0;
+		 } 
 		//조건에 맞는 구조체를 불러와야 함.. 
 		//obj는 movInfo 구조체 하나, arg는 조건
-		return 0;
+		
 }
 
 int mv_printRunTime(void* obj, void* arg)
