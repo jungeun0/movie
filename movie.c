@@ -48,7 +48,7 @@ int mv_printAll(void* obj, void* arg)
 		
 	printMv(mvPtr);
 	
-	return 0;
+	return 1;
 }
 
 int mv_printScore(void* obj, void* arg)
@@ -58,7 +58,7 @@ int mv_printScore(void* obj, void* arg)
 	if ((mvPtr->score) >= (*(float*)arg)){
 			
 		printMv(mvPtr);
-	
+		return 1;
 	}
 	else if (mvPtr == NULL){
 		
@@ -67,7 +67,7 @@ int mv_printScore(void* obj, void* arg)
 
 		//조건에 맞는 구조체를 불러와야 함.. 
 		//obj는 movInfo 구조체 하나, arg는 조건
-	return 0;	
+	return 0;
 }
 
 int mv_printRunTime(void* obj, void* arg)
@@ -76,7 +76,7 @@ int mv_printRunTime(void* obj, void* arg)
 	if ((mvPtr->runtime) >= (*(int*)arg)){
 			
 		printMv(mvPtr);
-	
+		return 1;
 	}
 	else if (mvPtr == NULL){
 		
@@ -91,10 +91,14 @@ int mv_printRunTime(void* obj, void* arg)
 int mv_printCountry(void* obj, void* arg)
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
+	char country = (char)(mvPtr->country);
+	char argument = *(char*)arg;
+	int comparison = strcmp(country,argument);
 	
-	if ((mvPtr->country) == (*(char*)arg)){
+	if(comparison == 0){
 			
 		printMv(mvPtr);
+		return 1;
 	
 	}
 	else if (mvPtr == NULL){

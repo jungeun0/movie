@@ -95,17 +95,16 @@ int main(int argc, char *argv[]) {
 				printf("\nprinting  the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");	
 				repFunc = mv_printRunTime;
-				list_repeatFunc(repFunc, arg, list);
+			
 				break;
 			case 4: //print movies with high score
 				printf("select the country : \n");
 				arg = &country;
-				scanf("%s",&country);
-				printf("%s",arg);
+				scanf(" %s",&country);
 				printf("\nprinting the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
 				repFunc = mv_printCountry;
-				list_repeatFunc(repFunc, arg, list);	
+		
 				break;
 				
 			case 5:
@@ -123,7 +122,7 @@ int main(int argc, char *argv[]) {
 	
 		} 
 		
-	
+	    
 		
 		//2.3 print number of movies
 		cnt = list_repeatFunc(repFunc, arg, list);
