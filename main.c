@@ -41,10 +41,10 @@ int main(int argc, char *argv[]) {
 	
 	//1.3 read each movie data from the file and add it to the linked list
 	while (fscanf(fp,"%s %s %d %f",name,country,&runtime,&score)!=EOF/*읽어온 파일을 열어서 변수에 저장*/ )
-	{  
+	{  	
 		//구조체로 넘김 
-		list_addTail(mvInfo, list);
-		mv_genMvInfo(name,score,runtime,country);
+		mvInfo = mv_genMvInfo(name,score,runtime,country);
+		list_addTail(mvInfo,list);
 		
 	}
 		//generate a movie info instance(mvInfo) with function mv_genMvInfo()
@@ -73,7 +73,6 @@ int main(int argc, char *argv[]) {
 			case 1: //print all the movies
 				printf("\nprinting all the movies in the list.....\n\n\n");
 				printf("----------------------------------------\n");
-				
 				repFunc = mv_printAll; //mv_print-All안에 printmv가 들어가야 함
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 
 				break; 

@@ -24,7 +24,6 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 	mvPtr->score = score;
 	printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
 	
-	free(mvPtr);
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;
@@ -33,7 +32,7 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 void printMv(void* obj)
 {	
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	mvPtr = (movInfo_t*)malloc(sizeof(movInfo_t));  //obj는 조건을 통해 선택된 영화 구조체
+										 //obj는 조건을 통해 선택된 영화 구조체
 	if (mvPtr == NULL)
 	{
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
@@ -45,9 +44,17 @@ void printMv(void* obj)
 }
 int mv_printAll(void* obj, void* arg)
 {	
-	obj = &list_getNdObj(list_getNextNd(genNode()));
-	//여기서 obj를 넘겨야해....아니면 앞에서 .. 어떻게 하지
-	free(obj);
+	movInfo_t* mvPtr = (movInfo_t*)obj;
+	
+	arg = mvPtr;
+	mvPtr->name;
+	mvPtr->country;
+	mvPtr->runtime;
+	mvPtr->score;
+	
+	printMv(arg);
+	
+	return 0;
 }
 
 int mv_printScore(void* obj, void* arg)
