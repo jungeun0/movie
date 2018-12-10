@@ -91,9 +91,8 @@ int mv_printRunTime(void* obj, void* arg)
 int mv_printCountry(void* obj, void* arg)
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-	char argument = *(char*)arg;
 	
-	int comparison = strcmp(mvPtr->country,argument);
+	int comparison = strcmp((char*)mvPtr->country,(char*)arg);
 	
 	if(comparison == 0){
 			
