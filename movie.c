@@ -22,17 +22,17 @@ void* mv_genMvInfo(char *name, float score, int runtime, char *country)
 	strcpy(mvPtr->name,name);
 	mvPtr->runtime = runtime;
 	mvPtr->score = score;
-	printf("%s %s %d %f\n",mvPtr->name, mvPtr->country, mvPtr->runtime, mvPtr->score);
+							//데이터에서 받은 값을 mvInfo에 넣어줌 
 	
 	//allocate memory and set the member variables
 	
 	return (void*)mvPtr;
 }
-
+ 
 void printMv(void* obj)
 {	
-	movInfo_t* mvPtr = (movInfo_t*)obj;
-										 //obj는 조건을 통해 선택된 영화 구조체
+	movInfo_t* mvPtr = (movInfo_t*)obj; 	 //obj는 조건을 통해 선택된 영화 구조체
+									
 	if (mvPtr == NULL)
 	{
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
@@ -54,9 +54,10 @@ int mv_printAll(void* obj, void* arg)
 int mv_printScore(void* obj, void* arg)
 {		
 	movInfo_t* mvPtr = (movInfo_t*)obj;
-		
+	
+		//obj는 movInfo 구조체 하나, arg는 조건	
 	if ((mvPtr->score) >= (*(float*)arg)){
-			
+									 //score가 입력받은 score값보다 같거나 큰 경우 
 		printMv(mvPtr);
 		return 1;
 	}
@@ -64,9 +65,7 @@ int mv_printScore(void* obj, void* arg)
 		
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
 	}
-
-		//조건에 맞는 구조체를 불러와야 함.. 
-		//obj는 movInfo 구조체 하나, arg는 조건
+	
 	return 0;
 }
 
@@ -92,19 +91,19 @@ int mv_printCountry(void* obj, void* arg)
 {
 	movInfo_t* mvPtr = (movInfo_t*)obj;
 	
-	int comparison = strcmp((char*)mvPtr->country,(char*)arg);
+	int comparison = strcmp((char*)mvPtr->country,(char*)arg);  //country와 입력받은 country값을 비교
 	
 	if(comparison == 0){
-			
+			 //country와 입력받은 country값을 비교했을 때, comparison이 0을 반환함. 즉, 0일 경우 두 변수가 같음.
 		printMv(mvPtr);
 		return 1;
-	
+		
 	}
 	else if (mvPtr == NULL){
 		
 		printf("[ERROR] failed to print the movie Info! (object is NULL)\n");
 	}
-
+	
 	
 	return 0;
 }
