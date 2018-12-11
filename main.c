@@ -77,7 +77,7 @@ int main(int argc, char *argv[]) {
 				arg = NULL; // arg는 구조체를 불러올 수 있는 조건 	
 				list_repeatFunc(repFunc, arg, list);
 				cnt = list_repeatFunc(repFunc, arg, list);
-				printf("totally %i movies are listed!\n",cnt);
+				printf("totally %i movies are listed!\n",cnt);//2.3 print number of movies
 				break; 
 				
 			case 2: //print movies of specific country
@@ -88,7 +88,7 @@ int main(int argc, char *argv[]) {
 				printf("----------- -----------------------------\n");
 				repFunc = mv_printScore;  
 				cnt = list_repeatFunc(repFunc, arg, list);
-				printf("totally %i movies are listed!\n",cnt); 
+				printf("totally %i movies are listed!\n",cnt); //2.3 print number of movies
 				break;
 			case 3: //print movies with long runtime
 				printf("select the runtime : \n");
@@ -98,7 +98,7 @@ int main(int argc, char *argv[]) {
 				printf("----------------------------------------\n");	
 				repFunc = mv_printRunTime;
 				cnt = list_repeatFunc(repFunc, arg, list);
-				printf("totally %i movies are listed!\n",cnt);
+				printf("totally %i movies are listed!\n",cnt); //2.3 print number of movies
 				break;
 			case 4: //print movies with high score
 				printf("select the country : \n");
@@ -108,7 +108,7 @@ int main(int argc, char *argv[]) {
 				printf("----------------------------------------\n");
 				repFunc = mv_printCountry;
 				cnt = list_repeatFunc(repFunc, arg, list);
-				printf("totally %i movies are listed!\n",cnt);
+				printf("totally %i movies are listed!\n",cnt); //2.3 print number of movies
 				break;
 				
 			case 5:
@@ -125,14 +125,6 @@ int main(int argc, char *argv[]) {
 		//2.2 printing operation by function pointer (list_repeatFunc() is called here)
 	
 		} 
-		
-	    
-		
-		//2.3 print number of movies
-		
-		if(exit_flag == 1){
-			cnt = 0; //exit_flag가 1인 경우에도 printf를 실행하게 됨. 
-		}
 		
 
    }
